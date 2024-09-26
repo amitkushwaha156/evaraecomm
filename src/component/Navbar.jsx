@@ -20,7 +20,7 @@ const Navbar = () => {
                 <ul>
                   <li>
                     <i className="fi-rs-smartphone" />{" "}
-                    <a href="#">(+91) - 8574898578 </a>
+                    <Link to="/">(+91) - 8574898578 </Link>
                   </li>
                   <li>
                     <i className="fi-rs-marker" />
