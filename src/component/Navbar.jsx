@@ -1,7 +1,15 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
+
+  const ProductDispatch=useDispatch()
+
+  const removeFromCart=(id)=>{
+    ProductDispatch({type: 'Cart_REMOVE', payload: id})
+ 
+  }
+
   const WishLength = useSelector((store) => store.WishList.length);
   const CartLength = useSelector((store) => store.Cart.length);
 
@@ -76,7 +84,7 @@ const Navbar = () => {
                       <li>
                         <a href="#">
                           <img
-                            src="./src/theme/assetss/imgs/theme/flag-fr.png"
+                            src="/src/theme/assetss/imgs/theme/flag-fr.png"
                             alt=""
                           />
                           Français
@@ -85,7 +93,7 @@ const Navbar = () => {
                       <li>
                         <a href="#">
                           <img
-                            src="./src/theme/assetss/imgs/theme/flag-dt.png"
+                            src="/src/theme/assetss/imgs/theme/flag-dt.png"
                             alt=""
                           />
                           Deutsch
@@ -94,7 +102,7 @@ const Navbar = () => {
                       <li>
                         <a href="#">
                           <img
-                            src="./src/theme/assetss/imgs/theme/flag-ru.png"
+                            src="/src/theme/assetss/imgs/theme/flag-ru.png"
                             alt=""
                           />
                           Pусский
@@ -104,7 +112,7 @@ const Navbar = () => {
                   </li>
                   <li>
                     <i className="fi-rs-user" />
-                    <a href="page-login-register.html">Log In / Sign Up</a>
+                    <a href="">Log In / Sign Up</a>
                   </li>
                 </ul>
               </div>
@@ -117,7 +125,7 @@ const Navbar = () => {
           <div className="header-wrap">
             <div className="logo logo-width-1">
               <Link to="/">
-                <img src="./src/theme/assetss/imgs/theme/logo.svg" alt="logo" />
+                <img src="/src/theme/assetss/imgs/theme/logo.svg" alt="logo" />
               </Link>
             </div>
             <div className="header-right">
@@ -185,7 +193,7 @@ const Navbar = () => {
                       <img
                         className="svgInject"
                         alt="Evara"
-                        src="./src/theme/assetss/imgs/theme/icons/icon-heart.svg"
+                        src="/src/theme/assetss/imgs/theme/icons/icon-heart.svg"
                       />
                       <span className="pro-count blue">{WishLength}</span>
                     </Link>
@@ -194,7 +202,7 @@ const Navbar = () => {
                     <Link className="mini-cart-icon" to="ShopCart">
                       <img
                         alt="Evara"
-                        src="./src/theme/assetss/imgs/theme/icons/icon-cart.svg"
+                        src="/src/theme/assetss/imgs/theme/icons/icon-cart.svg"
                       />
                       <span className="pro-count blue">{CartLength}</span>
                     </Link>
@@ -216,7 +224,7 @@ const Navbar = () => {
                               </h4>
                             </div>
                             <div className="shopping-cart-delete">
-                              <a href="#">
+                              <a onClick={()=>removeFromCart(item.id)}>
                                 <i className="fi-rs-cross-small" />
                               </a>
                             </div>
@@ -254,7 +262,7 @@ const Navbar = () => {
           <div className="header-wrap header-space-between position-relative">
             <div className="logo logo-width-1 d-block d-lg-none">
               <Link to="/">
-                <img src="./src/theme/assetss/imgs/theme/logo.svg" alt="logo" />
+                <img src="/src/theme/assetss/imgs/theme/logo.svg" alt="logo" />
               </Link>
             </div>
             <div className="header-nav d-none d-lg-flex">
@@ -270,7 +278,7 @@ const Navbar = () => {
                       <Link to="/">Home</Link>
                     </li>
                     <li>
-                      <Link to="MenShirts">MensWear</Link>
+                      <Link to="MensWear">MensWear</Link>
                     </li>
                     <li>
                       <Link to="WomensWear">WomenWear</Link>
@@ -307,7 +315,7 @@ const Navbar = () => {
                   <Link to="/WishList">
                     <img
                       alt="Evara"
-                      src="./src/theme/assetss/imgs/theme/icons/icon-heart.svg"
+                      src="/src/theme/assetss/imgs/theme/icons/icon-heart.svg"
                     />
                     <span className="pro-count white">{WishLength}</span>
                   </Link>
@@ -316,7 +324,7 @@ const Navbar = () => {
                   <Link to="ShopCart" className="mini-cart-icon">
                     <img
                       alt="Evara"
-                      src="./src/theme/assetss/imgs/theme/icons/icon-cart.svg"
+                      src="/src/theme/assetss/imgs/theme/icons/icon-cart.svg"
                     />
                     <span className="pro-count white">{CartLength}</span>
                   </Link>
@@ -327,7 +335,7 @@ const Navbar = () => {
                           <a href="shop-product-right.html">
                             <img
                               alt="Evara"
-                              src="./src/theme/assetss/imgs/shop/thumbnail-3.jpg"
+                              src="/src/theme/assetss/imgs/shop/thumbnail-3.jpg"
                             />
                           </a>
                         </div>
@@ -352,7 +360,7 @@ const Navbar = () => {
                           <a href="shop-product-right.html">
                             <img
                               alt="Evara"
-                              src="./src/theme/assetss/imgs/shop/thumbnail-4.jpg"
+                              src="/src/theme/assetss/imgs/shop/thumbnail-4.jpg"
                             />
                           </a>
                         </div>

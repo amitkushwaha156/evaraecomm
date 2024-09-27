@@ -5,13 +5,19 @@ import { Link } from 'react-router-dom'
 const WishList = () => {
   const products = useSelector(store=>store.WishList)
 
-   const removeDispatch=useDispatch()
+  //  const ProductDispatch= useDispatch()
+   const ProductDispatch=useDispatch()
 
   const removeFromCart=(id)=>{
-     removeDispatch({type: 'WISHLIST_REMOVE', payload: id})
+    ProductDispatch({type: 'WISHLIST_REMOVE', payload: id})
  
   }
- 
+
+  const handleCart=(id) => {
+
+        ProductDispatch({ type: 'ADD_TO_Cart', payload: id })
+     }
+
   return (
     <div>
       <main className="main">
@@ -70,7 +76,7 @@ const WishList = () => {
               <span className="color3 font-weight-bold">In Stock</span>
             </td>
             <td className="text-right" data-title="Cart">
-              <button className="btn btn-sm" onClick={() => addToCart(product)}>
+              <button className="btn btn-sm" onClick={() => handleCart(product.id)}>
                 <i className="fi-rs-shopping-bag mr-5" />
                 Add to cart
               </button>

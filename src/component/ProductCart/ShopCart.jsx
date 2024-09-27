@@ -9,7 +9,7 @@ const ShopCart = () => {
 
   const removeFromCart=(id)=>{
     removeDispatch({type: 'Cart_REMOVE', payload: id})
-   // console.log(id)
+
  }
 
  const handleClrCart=()=>{

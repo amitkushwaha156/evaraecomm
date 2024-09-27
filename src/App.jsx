@@ -13,6 +13,7 @@ import Checkout from "./component/ProductCart/Checkout";
 import NotFound from "./component/pages/NotFound";
 import MenShirts from "./component/Product/MensWear/MenShirts";
 import WomensItems from "./component/Product/WomensWear/WomensItems";
+import QuickView from "./component/pages/QuickView";
 
 
 
@@ -32,7 +33,8 @@ function App() {
           <Route path="/Blog" element={<Blog />} />
           <Route path="/About" element={<About />} />
           <Route path="/WishList" element={<WishList />} />
-          <Route path="/MenShirts" element={<MenShirts />} />
+          <Route path="/MensWear/QuickView" element={<QuickView />} />
+          <Route path="/MensWear" element={<MenShirts />} />
           <Route path="/WomensWear" element={<WomensItems />} />
           <Route path="/ShopCart" element={<ShopCart />} />
           <Route path="/Checkout" element={<Checkout />} />

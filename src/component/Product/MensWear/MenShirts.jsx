@@ -3,9 +3,12 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 const MenShirts = () => {
-    const products = useSelector(store=>store.Shirt)
+    const MensCategory= useSelector(store=>store.AllProducts)
 
 
+    const products =MensCategory.filter(item=>item.category === "MensWear")
+
+   console.log(MensCategory)
 
     const FoundItem=products.length;
 
@@ -21,6 +24,10 @@ const MenShirts = () => {
    const handleWishList=(id) => {
 
               ProductDispatch({ type: 'ADD_TO_WISHLIST', payload: id })
+      }
+   const handleQuickView=(id) => {
+
+              ProductDispatch({ type: 'ADD_TO_QUICKIES', payload: id })
       }
   
       
@@ -127,7 +134,7 @@ const MenShirts = () => {
             </div>
             <div className="row product-grid-3">
 
-           { products.map(product => (
+           {  products.map(product => (
               <div key={product.id} className="col-lg-4 col-md-4 col-12 col-sm-6">
                 <div className="product-cart-wrap mb-30">
                   <div className="product-img-action-wrap">
@@ -139,6 +146,7 @@ const MenShirts = () => {
                     </div>
                     <div className="product-action-1">
                      
+                    <Link aria-label="Quick view" onClick={()=>handleQuickView(product.id)} className="action-btn hover-up" to="/MensWear/QuickView"><i className="fi-rs-eye"></i></Link>
                       <button
                           key={products[0].actions[0].label}
                           aria-label={products[0].actions[0].label}
@@ -181,8 +189,8 @@ const MenShirts = () => {
                       </span>
                     </div>
                     <div className="product-price">
-                      <span>${product.price.current} </span>
-                      <span className="old-price">${product.price.old}</span>
+                      <span>{product.price.current} </span>
+                      <span className="old-price">{product.price.old}</span>
                     </div>
                     <div className="product-action-1 show">
                       <button   aria-label="Add To Cart"  onClick={() => handleCart(product.id)} className="action-btn hover-up" >
@@ -395,7 +403,7 @@ const MenShirts = () => {
                   <h5>
                     <a href="shop-product-detail.html">Chen Cardigan</a>
                   </h5>
-                  <p className="price mb-0 mt-5">$99.50</p>
+                  <p className="price mb-0 mt-5">99.50</p>
                   <div className="product-rate">
                     <div className="product-rating" style={{ width: "90%" }} />
                   </div>
@@ -409,7 +417,7 @@ const MenShirts = () => {
                   <h6>
                     <a href="shop-product-detail.html">Chen Sweater</a>
                   </h6>
-                  <p className="price mb-0 mt-5">$89.50</p>
+                  <p className="price mb-0 mt-5">89.50</p>
                   <div className="product-rate">
                     <div className="product-rating" style={{ width: "80%" }} />
                   </div>
@@ -423,7 +431,7 @@ const MenShirts = () => {
                   <h6>
                     <a href="shop-product-detail.html">Colorful Jacket</a>
                   </h6>
-                  <p className="price mb-0 mt-5">$25</p>
+                  <p className="price mb-0 mt-5">25</p>
                   <div className="product-rate">
                     <div className="product-rating" style={{ width: "60%" }} />
                   </div>
